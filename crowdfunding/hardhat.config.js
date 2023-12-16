@@ -1,5 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
-require("dotenv").config({psth:'./.env.local'})
+require("dotenv").config({path:'./.env.local'});
 
 task("accounts","prints list of accounts", async(taskArgs,hre)=>{
   const accounts=await hre.ethers.getSigners();
@@ -17,8 +17,8 @@ module.exports = {
   defaultNetwork:"polygon",
   networks:{
     hardhat:{},
-    polygin:{
-      url: process.env.NXT_PUBLIC_RPC_URL,
+    polygon:{
+      url: process.env.NEXT_PUBLIC_RPC_URL,
       accounts:[privateKey]
     }
   }

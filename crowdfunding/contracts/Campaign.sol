@@ -1,5 +1,5 @@
 // SPDX-License-Identifier:Unlicensed
-// >0.7.0<=0.9.0;
+// >0.7.0<=0.9.0
 
 pragma solidity ^0.8.10;
 
@@ -28,7 +28,9 @@ contract CampaignFactory{
                 campaignTitle, 
                 requiredCampaignAmount, 
                 imgURI, 
-                storyURI);
+                storyURI,
+                msg.sender
+                );
 
             deployedCampaigns.push(address(newCampaign));
 
@@ -58,13 +60,14 @@ contract Campaign{
      string memory CampaignTitle,
      uint requiredCampaignAmount,
      string memory imgURI,
-     string memory storyURI
+     string memory storyURI,
+     address campaignOwner
      ){
         title=CampaignTitle;
         requiredAmount=requiredCampaignAmount;
         image=imgURI;
         story=storyURI;
-        owner=payable(msg.sender);
+        owner=payable(campaignOwner);
     }
 
     function donate() public  payable {

@@ -48,7 +48,8 @@ const Form = () => {
           toast.warn("Story Field Is Empty");
         } else if(form.requiredAmount === "") {
           toast.warn("Required Amount Field Is Empty");
-        } else if(uploaded == false) {
+        } 
+        else if(uploaded == false) {
             toast.warn("Files Upload Required")
         }
         else {        
